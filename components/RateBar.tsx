@@ -1,4 +1,4 @@
-export const RateBar = ({text, count, ...props}:BarInfo) => {
+export const RateBar = ({text, count, ...props}:Answer) => {
     return <div className="rate-bar">
             <div className="bar-info">
                 <span>

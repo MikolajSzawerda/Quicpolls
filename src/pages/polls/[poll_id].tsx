@@ -1,31 +1,27 @@
-import {RateBar} from "../../../components/RateBar";
 import {RatePanel} from "../../../components/RatePanel";
 import QRCode from "react-qr-code";
-const pollUrl = "https://mszawerd.toadres.pl"
-const pollInfos: BarInfo[] = [
-    {
-        id: 1,
-        text: "Interesting",
-        count: 10
-    },
-    {
-        id: 2,
-        text: "I am impressed",
-        count: 20
-    },
-    {
-        id: 3,
-        text: "It looks modern",
-        count: 40
-    },
-    {
-        id: 4,
-        text: "No idea",
-        count: 5
-    },
-]
+import {useEffect, useState} from "react";
+import {supaClient} from "../../../lib/supa-client";
+const pollUrlBase = process.env.NEXT_PUBLIC_HOST_URL ?? ""
+
 
 export default function PollPage() {
+    const [pollData, setPollData] = useState<SupaResponse>()
+    useEffect(()=> {
+        const fetchData = async () => {
+            const {data, error} = await supaClient
+                .from("polls")
+
+                .select()
+            if(data){
+                setPollData(data[0] as SupaResponse)
+            }
+        }
+        fetchData().catch(console.error)
+
+    }, [])
+    const pollUrl = `${pollUrlBase}/${pollData?.shortId}`
+
     return <>
         <main className="poll-info">
             <div className="poll-join-panel">
@@ -39,9 +35,15 @@ export default function PollPage() {
                 </div>
             </div>
             <div className="poll-result-panel">
+                { pollData && (
+                    <>
+                        <h1>{pollData.question}</h1>
+                        <RatePanel {...pollData}/>
 
-                <h1>How do you like the surveys?</h1>
-                <RatePanel  data={pollInfos}/>
+                    </>
+                )
+                }
+
             </div>
         </main>
     </>

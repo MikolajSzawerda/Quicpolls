@@ -1,14 +1,10 @@
 import {RateBar} from "./RateBar";
 
-interface RateInfos {
-    data: BarInfo[]
-}
-
-export const RatePanel = ({data}: RateInfos) => {
-    const total = data.reduce((a, c)=>a+c.count, 0)
+export const RatePanel = ({answers}: SupaResponse) => {
+    const total = answers.reduce((a, c)=>a+c.count, 0)
     return <div className="rate-panel">
-        {data.map((info) => {
-            return <RateBar {...info} count={100*info.count/total} key={info.id}/>
+        {answers.map((info) => {
+            return <RateBar {...info} count={total != 0 ? 100*info.count/total : 0} key={info.id}/>
         })}
     </div>
 }
