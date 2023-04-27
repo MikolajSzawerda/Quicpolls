@@ -1,26 +1,30 @@
-import {RatePanel} from "../../../components/RatePanel";
-import QRCode from "react-qr-code";
+import {useParams} from "react-router-dom";
+import {SupaResponse} from "../../lib/Types";
 import {useEffect, useState} from "react";
-import {supaClient} from "../../../lib/supa-client";
-const pollUrlBase = process.env.NEXT_PUBLIC_HOST_URL ?? ""
+import {supaClient} from "../../lib/supa-client";
+import {RatePanel} from "../../components/RatePanel";
+import QRCode from "react-qr-code";
+const pollUrlBase = import.meta.env.NEXT_PUBLIC_HOST_URL ?? ""
 
 
-export default function PollPage() {
+export const PollResultPage= () => {
+    const {pollId} = useParams();
     const [pollData, setPollData] = useState<SupaResponse>()
     useEffect(()=> {
         const fetchData = async () => {
-            const {data, error} = await supaClient
+            const {data} = await supaClient
                 .from("polls")
-
                 .select()
+                .eq('shortId', pollId)
+                .limit(1)
             if(data){
                 setPollData(data[0] as SupaResponse)
             }
         }
         fetchData().catch(console.error)
-
+        console.log("API call done!")
     }, [])
-    const pollUrl = `${pollUrlBase}/${pollData?.shortId}`
+    const pollUrl = `${pollUrlBase}/${pollId}`
 
     return <>
         <main className="poll-info">
@@ -39,7 +43,6 @@ export default function PollPage() {
                     <>
                         <h1>{pollData.question}</h1>
                         <RatePanel {...pollData}/>
-
                     </>
                 )
                 }

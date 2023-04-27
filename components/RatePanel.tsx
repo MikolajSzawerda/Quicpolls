@@ -1,4 +1,5 @@
 import {RateBar} from "./RateBar";
+import {SupaResponse} from "../lib/Types";
 
 export const RatePanel = ({answers}: SupaResponse) => {
     const total = answers.reduce((a, c)=>a+c.count, 0)

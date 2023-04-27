@@ -1,16 +1,16 @@
-interface BarInfo {
+export interface BarInfo {
     id: number
     text: string
     count: number
 }
 
-interface Answer {
+export interface Answer {
     id: number,
     text: string,
     count: number
 }
 
-interface SupaResponse {
+export interface SupaResponse {
     id: number,
     question: string,
     shortId: string,

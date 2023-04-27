@@ -1,4 +1,6 @@
-export const RateBar = ({text, count, ...props}:Answer) => {
+import {Answer} from "../lib/Types";
+
+export const RateBar = ({text, count}:Answer) => {
     return <div className="rate-bar">
             <div className="bar-info">
                 <span>
