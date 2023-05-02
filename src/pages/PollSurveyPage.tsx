@@ -67,7 +67,7 @@ export default function PollSurveyPage() {
         }
     }
 
-
+    const answers = Object.values(pollData?.answers ?? {})
     return <>
         <main className="poll-ans-panel">
             {!answerd ? <>
@@ -76,7 +76,7 @@ export default function PollSurveyPage() {
                     <div>Select one option</div>
                     <div className="poll-answers">
                         {
-                            pollData?.answers.map((ans) => {
+                            answers.map((ans) => {
                                 return <div key={ans.id} onClick={onChose} id={ans.id.toString()}>
                                     <AnswerButton text={ans.text} disable={chosen != undefined ? chosen != ans.id : true}
                                                   key={ans.id}/>

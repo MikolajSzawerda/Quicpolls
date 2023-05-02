@@ -14,5 +14,5 @@ export interface SupaResponse {
     id: number,
     question: string,
     shortId: string,
-    answers: Answer[]
+    answers: {[key:string]: Answer}
 }
