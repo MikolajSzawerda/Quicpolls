@@ -23,6 +23,22 @@ export const PollResultPage= () => {
         }
         fetchData().catch(console.error)
         console.log("API call done!")
+        const pollsSubscription  = supaClient.channel('custom-filter-channel')
+            .on(
+                'postgres_changes',
+                { event: '*', schema: 'public', table: 'polls', filter: `shortId=eq.${pollId}` },
+                (payload) => {
+                    const newData = payload.new
+                    setPollData(newData as SupaResponse)
+                    console.log('Change received!', payload)
+
+                }
+            )
+            .subscribe()
+
+        return () => {
+            pollsSubscription.unsubscribe().then();
+        };
     }, [])
     const pollUrl = `${pollUrlBase}/${pollId}`
 
