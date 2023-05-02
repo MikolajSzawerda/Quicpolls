@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {supaClient} from "../../lib/supa-client";
 import {RatePanel} from "../../components/RatePanel";
 import QRCode from "react-qr-code";
+import {Respondents} from "../../components/Respondents";
 const pollUrlBase = import.meta.env.NEXT_PUBLIC_HOST_URL ?? ""
 
 
@@ -41,7 +42,6 @@ export const PollResultPage= () => {
         };
     }, [])
     const pollUrl = `${pollUrlBase}/${pollId}`
-
     return <>
         <main className="poll-info">
             <div className="poll-join-panel">
@@ -57,7 +57,10 @@ export const PollResultPage= () => {
             <div className="poll-result-panel">
                 { pollData && (
                     <>
+                        <div className="poll-result-heading">
                         <h1>{pollData.question}</h1>
+                        <Respondents {...pollData}/>
+                        </div>
                         <RatePanel {...pollData}/>
                     </>
                 )
