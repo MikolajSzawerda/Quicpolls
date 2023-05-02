@@ -51,19 +51,29 @@ export default function PollSurveyPage() {
         setChosen(undefined)
     }
 
-    const onSubmit = () => {
-        if (typeof window !== 'undefined') {
-            if (chosen) {
-                console.log(`You submitted ${chosen}`)
-                const answers = localStorage.getItem('answered')
-                let parsed = [pollId as string]
-                if (answers) {
-                    parsed = JSON.parse(answers) as Array<string>
-                    parsed.push(pollId as string)
-                }
-                localStorage.setItem('answered', JSON.stringify(Array.from(new Set(parsed))))
-                setAnswerd(true)
+    const addNewAnswer = (chosen: number | undefined) => {
+        if (chosen) {
+            console.log(`You submitted ${chosen}`)
+            const answers = localStorage.getItem('answered')
+            let parsed = [pollId as string]
+            if (answers) {
+                parsed = JSON.parse(answers) as Array<string>
+                parsed.push(pollId as string)
             }
+            localStorage.setItem('answered', JSON.stringify(Array.from(new Set(parsed))))
+            setAnswerd(true)
+        }
+    }
+
+    const onSubmit = async () => {
+        if(chosen){
+            addNewAnswer(chosen)
+            const { error } = await supaClient
+                .rpc('increment_count', {
+                    answer_id: chosen,
+                    poll_id: pollData?.id
+                })
+            if (error) console.error(error)
         }
     }
 
