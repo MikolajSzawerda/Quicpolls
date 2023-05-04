@@ -199,6 +199,11 @@ body {
   border-bottom: #e84733 2px solid;
 }
 
+.focused-input {
+  outline: none;
+  border-bottom: #e84733 2px solid;
+}
+
 .answer-edit-button {
   display: flex;
   flex-direction: row;
@@ -223,4 +228,9 @@ body {
 .icon-hover:hover {
   background-color: rgba(238, 238, 238, 0.41);
   border-radius: 4px;
+}
+
+.scrollable-panel {
+  overflow-y: scroll;
+  height: 50vh;
 }
