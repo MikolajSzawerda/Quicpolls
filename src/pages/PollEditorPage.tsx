@@ -3,10 +3,12 @@ import {useRef, useState} from "react";
 import {AnswerEdit} from "../../components/AnswerEdit";
 import {Answer, SupaResponse} from "../../lib/Types";
 import {supaClient} from "../../lib/supa-client";
+import { useNavigate } from "react-router-dom";
 
 export default function PollEditorPage() {
     const [answers, setAnswers] = useState<Array<string>>([])
     const questionRef = useRef<HTMLInputElement>(null)
+    const navigate = useNavigate()
     const onAdd = (value: string) => {
         setAnswers([...answers, value])
     }
@@ -49,7 +51,12 @@ export default function PollEditorPage() {
                     .insert(submision)
                     .select()
                 if(error) console.log(error)
-                else console.log(data)
+                else{
+                    const id = (data[0] as SupaResponse).shortId
+                    if(id){
+                        navigate(`/polls/${id}`)
+                    }
+                }
             }
             insertData(req).then()
         }
