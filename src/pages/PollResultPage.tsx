@@ -5,7 +5,7 @@ import {supaClient} from "../../lib/supa-client";
 import {RatePanel} from "../../components/RatePanel";
 import QRCode from "react-qr-code";
 import {Respondents} from "../../components/Respondents";
-const pollUrlBase = import.meta.env.NEXT_PUBLIC_HOST_URL ?? ""
+const pollUrlBase = import.meta.env.VITE_HOST_URL ?? ""
 
 
 export const PollResultPage= () => {

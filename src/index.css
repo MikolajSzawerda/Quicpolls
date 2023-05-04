@@ -181,3 +181,46 @@ body {
   height: 1.5rem;
   width: auto;
 }
+
+.answer-adder-input {
+  border: none;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  border-top: white 4px solid;
+  border-bottom: white 2px solid;
+  margin: 1rem 0;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.answer-adder-input:focus {
+  outline: none;
+  border-bottom: #e84733 2px solid;
+}
+
+.answer-edit-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #ed6859;
+  padding: 1rem;
+  border-radius: 4px;
+  height: 100%;
+  border: #ed6859 1px solid;
+}
+
+.red-button:hover{
+  background-color: #e84733;
+  border-color: #e84733;
+}
+
+.icon-hover {
+  width: 1rem;
+}
+
+.icon-hover:hover {
+  background-color: rgba(238, 238, 238, 0.41);
+  border-radius: 4px;
+}

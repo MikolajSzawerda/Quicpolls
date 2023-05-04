@@ -4,11 +4,16 @@ import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {PollResultPage} from "./pages/PollResultPage";
 import PollSurveyPage from "./pages/PollSurveyPage";
+import PollEditorPage from "./pages/PollEditorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <div>Hello world!</div>,
+    },
+    {
+        path: "/editor",
+        element: <PollEditorPage/>
     },
     {
         path: "/polls/:pollId",
