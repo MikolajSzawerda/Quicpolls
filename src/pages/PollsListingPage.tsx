@@ -7,6 +7,7 @@ import {SupaResponse} from "../../lib/Types";
 export default function PollsListingPage() {
     const navigate = useNavigate()
     const [polls, setPolls] = useState<SupaResponse[]>([])
+    polls.sort((a, b)=> (b.id ?? 0) - (a.id ?? 0))
     useEffect(()=>{
         const fetchData = async ()=>{
             const {data, error} = await supaClient

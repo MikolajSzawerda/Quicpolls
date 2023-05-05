@@ -42,7 +42,7 @@ export const PollResultPage= () => {
         };
     }, [])
     const pollUrl = `${pollUrlBase}/${pollId}`
-    return <>
+    return <div>
         <main className="poll-info">
             <div className="poll-join-panel">
                 <div>
@@ -68,5 +68,5 @@ export const PollResultPage= () => {
 
             </div>
         </main>
-    </>
+    </div>
 }

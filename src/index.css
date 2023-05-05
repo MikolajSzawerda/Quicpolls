@@ -8,6 +8,7 @@ body {
   color: #000;
 }
 
+
 /* width */
 ::-webkit-scrollbar {
   width: 12px;
@@ -30,10 +31,10 @@ body {
   background: #555;
 }
 
-
 .poll-info {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto;
 }
 
 .poll-result-panel h1{
@@ -42,20 +43,19 @@ body {
 
 .poll-result-panel {
   margin: 0 2rem;
-  width: 100%;
+  height: 100%;
+
 }
 
 .poll-join-panel {
   background-color: #ed6859;
-  width: 25vw;
-  height: 100vh;
   color: white;
   text-align: center;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   font-size: 1.2rem;
+  height: 92.5vh;
 }
 
 .poll-qr {
@@ -318,7 +318,7 @@ body {
 .poll-listing-panel{
   display: flex;
   flex-direction: column;
-  margin: 10vw;
+  margin: 0 5vw;
 }
 
 .poll-listing-polls {
@@ -327,7 +327,7 @@ body {
   grid-auto-flow: dense;
   grid-gap: 1rem;
   overflow-y: scroll;
-  max-height: 50vh;
+  max-height: 60vh;
 }
 
 .poll-listing-add {
@@ -342,4 +342,36 @@ body {
 
 .poll-listing-add:hover{
   background-color: #e84733;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #e84733;
+  font-weight: bold;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-item {
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.1s ease-in;
+}
+.nav-item:hover{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-header {
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav-action-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
