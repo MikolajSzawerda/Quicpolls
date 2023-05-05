@@ -5,11 +5,16 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {PollResultPage} from "./pages/PollResultPage";
 import PollSurveyPage from "./pages/PollSurveyPage";
 import PollEditorPage from "./pages/PollEditorPage";
+import PollsListingPage from "./pages/PollsListingPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <div>Hello world!</div>,
+    },
+    {
+        path: "/polls",
+        element: <PollsListingPage/>
     },
     {
         path: "/editor",

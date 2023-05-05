@@ -234,3 +234,60 @@ body {
   overflow-y: scroll;
   height: 50vh;
 }
+
+.poll-card {
+  border: #ed6859 2px solid;
+  padding: 1rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.poll-card-heading {
+  font-weight: bold;
+  border-bottom: #ed6859 2px solid;
+}
+
+.poll-card-answers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-flow: dense;
+  grid-gap: 0.5rem;
+  width: 75%;
+
+}
+
+.poll-card-answer {
+  border: #ed6859 1px solid;
+  padding: 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.poll-card-answer-count {
+  border-top: #ed6859 1px solid;
+}
+
+.poll-card-buttons {
+  border-top: #ed6859 2px solid;
+  padding: 0.5rem;
+}
+
+.poll-card-button {
+  text-align: center;
+  border: #ed6859 1px solid;
+  background-color: #ed6859;
+  padding: 0.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+.poll-card-button:hover{
+  background-color: #e84733;
+}
+
+.poll-card-state{
+  border-bottom: #ed6859 1px solid;
+}
