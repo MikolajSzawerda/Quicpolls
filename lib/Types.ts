@@ -16,4 +16,11 @@ export interface SupaResponse {
     shortId: string,
     answers: {[key:string]: Answer}
     isopened?: boolean
+    author: string
+}
+
+export interface Session {
+    logged: boolean,
+    logIn?: ()=>void,
+    logOut?: ()=>void
 }

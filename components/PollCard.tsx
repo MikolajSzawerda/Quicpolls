@@ -12,7 +12,6 @@ export const PollCard = ({onOpen, data}:PollCardProps) => {
     const answers = Object.values(pollData.answers)
     const color = pollData.isopened ? "green" : "red"
     const state = pollData.isopened ? "Opened" : "Finished"
-    console.log("id", pollData.id)
     const onFinishPoll = () => {
         const finishPoll = async () => {
             const {data, error} = await supaClient

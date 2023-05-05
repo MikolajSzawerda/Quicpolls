@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {createContext} from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
@@ -7,6 +7,8 @@ import PollSurveyPage from "./pages/PollSurveyPage";
 import PollEditorPage from "./pages/PollEditorPage";
 import PollsListingPage from "./pages/PollsListingPage";
 import {Navbar} from "../components/Navbar";
+import {Session} from "../lib/Types";
+import {useSession} from "../lib/hooks";
 
 const router = createBrowserRouter([
     {
@@ -39,9 +41,18 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     </React.StrictMode>,
 )
 
+export const UserContext = createContext<Session>({
+    logged: false,
+})
+
 export default function Layout() {
+    const session = useSession()
     return <>
-        <Navbar/>
-            <Outlet/>
+        <UserContext.Provider value={session}>
+            <Navbar/>
+            {
+                session.logged ? <Outlet/> : <></>
+            }
+        </UserContext.Provider>
     </>
 }
