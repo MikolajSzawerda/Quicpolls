@@ -29,5 +29,6 @@ export default function PollsListingPage() {
             }
 
         </div>
+        <div className="poll-listing-add" onClick={()=>navigate("/editor")}>Add new poll!</div>
     </main>
 }
