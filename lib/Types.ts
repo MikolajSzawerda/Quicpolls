@@ -15,4 +15,5 @@ export interface SupaResponse {
     question: string,
     shortId: string,
     answers: {[key:string]: Answer}
+    isopened?: boolean
 }

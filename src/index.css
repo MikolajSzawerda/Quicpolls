@@ -243,6 +243,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  justify-content: center;
 }
 
 .poll-card-heading {
@@ -256,7 +257,6 @@ body {
   grid-auto-flow: dense;
   grid-gap: 0.5rem;
   width: 75%;
-
 }
 
 .poll-card-answer {
@@ -290,4 +290,17 @@ body {
 
 .poll-card-state{
   border-bottom: #ed6859 1px solid;
+}
+
+.poll-listing-panel{
+  display: flex;
+  flex-direction: column;
+  margin: 10vw;
+}
+
+.poll-listing-polls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-auto-flow: dense;
+  grid-gap: 1rem;
 }
