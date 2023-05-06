@@ -1,3 +1,5 @@
+import {Session} from "@supabase/supabase-js";
+
 export interface BarInfo {
     id: number
     text: string
@@ -19,8 +21,11 @@ export interface SupaResponse {
     author: string
 }
 
-export interface Session {
-    logged: boolean,
-    logIn?: ()=>void,
+export interface SessionTools {
+    currentSession: Session | null | undefined,
     logOut?: ()=>void
+}
+
+export interface AuthMode {
+    mode: "sign_in" | "sign_out"
 }

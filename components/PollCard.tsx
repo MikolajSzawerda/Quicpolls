@@ -2,13 +2,13 @@ import {SupaResponse} from "../lib/Types";
 import {useState} from "react";
 import {supaClient} from "../lib/supa-client";
 
-interface PollCardProps{
-    onOpen: ()=>void
+interface PollCardProps {
+    onOpen: () => void
     data: SupaResponse
 }
 
-export const PollCard = ({onOpen, data}:PollCardProps) => {
-    const [pollData, setPollData ] = useState(data)
+export const PollCard = ({onOpen, data}: PollCardProps) => {
+    const [pollData, setPollData] = useState(data)
     const answers = Object.values(pollData.answers)
     const color = pollData.isopened ? "green" : "red"
     const state = pollData.isopened ? "Opened" : "Finished"
@@ -19,18 +19,18 @@ export const PollCard = ({onOpen, data}:PollCardProps) => {
                 .update({isopened: false})
                 .match({id: pollData.id})
                 .select()
-            if(error) console.error(error)
+            if (error) console.error(error)
             else setPollData(data[0] as SupaResponse)
         }
         finishPoll().then()
     }
 
-    return <div className="poll-card" >
+    return <div className="poll-card">
         <div className="poll-card-heading">Question: {pollData.question}</div>
         <div className="poll-card-state"><b>State: </b> <span style={{color: color}}>{state}</span></div>
         <div className="poll-card-answers">
             {
-                answers.map((answer)=>{
+                answers.map((answer) => {
                     return <div className="poll-card-answer">
                         <div>
                             {answer.text}

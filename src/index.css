@@ -375,3 +375,67 @@ body {
   flex-direction: row;
   gap: 1rem;
 }
+
+.form-submit-button {
+  background-color: #ed6859;
+  border: none;
+  width: 100%;
+  padding: 1rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.form-submit-button:hover{
+  background-color: #e84733;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-input {
+  border: none;
+  border-bottom: #ed6859 2px solid;
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.form-input:focus{
+  outline: none;
+  border-bottom: #e84733 2px solid;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-anchor {
+  color: #ed6859;
+  text-align: center;
+}
+
+.form-divider {
+}
+
+.form-message {
+  text-align: center;
+  display: block;
+  color: #e84733;
+}
+
+.login-panel {
+  margin: 2rem;
+}
+
+.request {
+  text-align: center;
+}

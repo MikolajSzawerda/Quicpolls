@@ -14,7 +14,7 @@ export const AnswerEdit = ({text, idx, onEdit, onDelete}: AnswerEditProps) => {
     const [editing, setEditing] = useState(false)
     const [isHover, setIsHover] = useState(false)
     const onSubmit = ({target}: React.FocusEvent<HTMLInputElement>) => {
-        if(target.value){
+        if (target.value) {
             onEdit(target.value, idx)
         }
         setEditing(false)
@@ -39,8 +39,8 @@ export const AnswerEdit = ({text, idx, onEdit, onDelete}: AnswerEditProps) => {
                        className="answer-adder-input"/>
             </div> :
             <div key={idx} className="answer-edit-button" onMouseLeave={() => setIsHover(false)}>
-                    <img src={DeleteSVG} className="icon icon-hover" alt="Delete" onClick={onDeleteClick}/>
-                    <img src={EditSVG} className="icon icon-hover" alt="Edit" onClick={onEditClick}/>
+                <img src={DeleteSVG} className="icon icon-hover" alt="Delete" onClick={onDeleteClick}/>
+                <img src={EditSVG} className="icon icon-hover" alt="Edit" onClick={onEditClick}/>
             </div>
 
 }

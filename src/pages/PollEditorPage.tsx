@@ -1,14 +1,22 @@
 import {AnswerAdder} from "../../components/AnswerAdder";
-import {useRef, useState} from "react";
+import {useContext, useRef, useState} from "react";
 import {AnswerEdit} from "../../components/AnswerEdit";
 import {Answer, SupaResponse} from "../../lib/Types";
 import {supaClient} from "../../lib/supa-client";
 import { useNavigate } from "react-router-dom";
+import {UserContext} from "../main";
 
 export default function PollEditorPage() {
     const [answers, setAnswers] = useState<Array<string>>([])
     const questionRef = useRef<HTMLInputElement>(null)
     const navigate = useNavigate()
+    const session = useContext(UserContext)
+    let author: string
+    if(!session.currentSession?.user){
+        navigate("/auth")
+    } else {
+        author = session.currentSession.user.id
+    }
     const onAdd = (value: string) => {
         setAnswers([...answers, value])
     }
@@ -43,6 +51,7 @@ export default function PollEditorPage() {
             const req: SupaResponse = {
                 question: question,
                 shortId: "",
+                author: author,
                 answers: ans
             }
             const insertData = async (submision: SupaResponse) => {
