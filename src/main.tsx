@@ -29,10 +29,6 @@ const router = createBrowserRouter([
                 path: "polls/:pollId",
                 element: <PollResultPage/>
             },
-            {
-                path: ":pollId",
-                element: <PollSurveyPage/>
-            }
         ]
     },
     {
@@ -45,6 +41,10 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: ":pollId",
+        element: <PollSurveyPage/>
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
