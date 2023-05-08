@@ -1,5 +1,14 @@
 # TODO
 
+## **BUGS**
+- [ ] can't choose first option
+- [ ] after sign up, confirmation link moves to localhost
+- [ ] user can create account with existing email in db
+- [ ] on different screens main panel has scroll
+- [ ] poll result looks bad on mobile
+
+## General
+
 - [ ] Of course refactor code
 - [ ] Better CSS structure
 - [ ] Better authorization usage
