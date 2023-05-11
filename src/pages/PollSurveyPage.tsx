@@ -13,7 +13,6 @@ export default function PollSurveyPage() {
         const answers = localStorage.getItem('answered')
         if (answers) {
             const parsed = JSON.parse(answers) as Array<string>
-            console.log(parsed)
             return parsed.includes(pollId as string)
         }
         return false
@@ -24,7 +23,6 @@ export default function PollSurveyPage() {
     useEffect(() => {
         if (!answerd) {
             const fetchData = async () => {
-                console.log("API CALL")
                 const {data, error} = await supaClient
                     .from("polls")
                     .select()
@@ -34,7 +32,6 @@ export default function PollSurveyPage() {
                     console.error(error)
                 }
                 if (data) {
-                    console.log("DATA:", data)
                     setPollData(data[0] as SupaResponse)
                 }
             }
@@ -51,22 +48,20 @@ export default function PollSurveyPage() {
         setChosen(undefined)
     }
 
-    const addNewAnswer = (chosen: number | undefined) => {
-        if (chosen) {
-            console.log(`You submitted ${chosen}`)
-            const answers = localStorage.getItem('answered')
-            let parsed = [pollId as string]
-            if (answers) {
-                parsed = JSON.parse(answers) as Array<string>
-                parsed.push(pollId as string)
-            }
-            localStorage.setItem('answered', JSON.stringify(Array.from(new Set(parsed))))
-            setAnswerd(true)
+    const addNewAnswer = (chosen: number) => {
+        console.log(`You submitted ${chosen}`)
+        const answers = localStorage.getItem('answered')
+        let parsed = [pollId as string]
+        if (answers) {
+            parsed = JSON.parse(answers) as Array<string>
+            parsed.push(pollId as string)
         }
+        localStorage.setItem('answered', JSON.stringify(Array.from(new Set(parsed))))
+        setAnswerd(true)
     }
 
     const onSubmit = async () => {
-        if(chosen){
+        if(chosen!=undefined){
             addNewAnswer(chosen)
             const { error } = await supaClient
                 .rpc('increment_count', {
