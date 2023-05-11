@@ -7,7 +7,9 @@ body {
   background-color: #fff;
   color: #000;
 }
-
+#root {
+  height: 100vh ;
+}
 
 /* width */
 ::-webkit-scrollbar {
@@ -30,11 +32,16 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.outer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
 .poll-info {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: auto;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
 }
 
 .poll-result-panel h1{
@@ -43,8 +50,7 @@ body {
 
 .poll-result-panel {
   margin: 0 2rem;
-  height: 100%;
-
+  flex-basis: 75%;
 }
 
 .poll-join-panel {
@@ -54,17 +60,18 @@ body {
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  font-size: 1.2rem;
-  height: 92.5vh;
+  align-items: center;
+  flex-basis: 25%;
 }
 
 .poll-qr {
-  margin: auto 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  margin: auto 0;
+  width: 100%;
 }
 
 

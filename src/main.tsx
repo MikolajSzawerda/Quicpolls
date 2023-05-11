@@ -61,11 +61,13 @@ export default function Layout({protect}: { protect: boolean }) {
     const session = useSession()
     return <>
         <UserContext.Provider value={session}>
-            <Navbar/>
-            {
-                !protect || session.currentSession?.user ? <Outlet/> :
-                    <h1 className="request">Please sign in! 😄</h1>
-            }
+            <div className="outer">
+                <Navbar/>
+                {
+                    !protect || session.currentSession?.user ? <Outlet/> :
+                        <h1 className="request">Please sign in! 😄</h1>
+                }
+            </div>
         </UserContext.Provider>
     </>
 }
