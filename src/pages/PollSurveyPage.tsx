@@ -73,8 +73,7 @@ export default function PollSurveyPage() {
     }
 
     const answers = Object.values(pollData?.answers ?? {})
-    return <>
-        <main className="poll-ans-panel">
+    return <div className="poll-ans-panel">
             {!answerd ? <>
 
                     <h1>{pollData?.question}</h1>
@@ -98,6 +97,5 @@ export default function PollSurveyPage() {
                 <>
                     <h1>You have answered on that question :)</h1>
                 </>}
-        </main>
-    </>
+        </div>
 }

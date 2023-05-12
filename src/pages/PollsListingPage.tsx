@@ -26,7 +26,7 @@ export default function PollsListingPage() {
             fetchData().then(setPolls)
         }
     }, [])
-    return <main className="poll-listing-panel">
+    return <div className="poll-listing-panel">
         <h1 style={{textAlign: "center"}}>My polls</h1>
         <div className="poll-listing-polls">
             {polls.length > 0 ? polls.map((poll, i) => {
@@ -37,5 +37,5 @@ export default function PollsListingPage() {
 
         </div>
         <div className="poll-listing-add" onClick={()=>navigate("/edit")}>Add new poll!</div>
-    </main>
+    </div>
 }

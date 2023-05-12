@@ -71,7 +71,7 @@ export default function PollEditorPage() {
         }
     }
 
-    return <main className="poll-ans-panel">
+    return <div className="poll-ans-panel">
         <h1>Enter poll data</h1>
         <h2>Question:</h2>
         <input ref={questionRef} type="text" className="answer-adder-input focused-input"/>
@@ -91,5 +91,5 @@ export default function PollEditorPage() {
             <button className="answer-button-submit" onClick={onSubmit}>Submit
             </button>
         </div>
-    </main>
+    </div>
 }

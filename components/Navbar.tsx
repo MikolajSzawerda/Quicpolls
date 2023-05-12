@@ -10,7 +10,8 @@ export const Navbar = () => {
         navigate("/auth", {state: {mode: mode}})
     }
 
-    return <nav className="nav-bar">
+    return <header>
+        <nav className="nav-bar">
         <div className="nav-header">Quicpolls</div>
         <div className="nav-action-buttons">
             {session.currentSession?.user ? <>
@@ -23,7 +24,7 @@ export const Navbar = () => {
             </>
 
             }
-
         </div>
     </nav>
+    </header>
 }

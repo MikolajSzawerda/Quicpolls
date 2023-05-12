@@ -60,14 +60,14 @@ export const UserContext = createContext<SessionTools>({
 export default function Layout({protect}: { protect: boolean }) {
     const session = useSession()
     return <>
+    <div className="outer">
         <UserContext.Provider value={session}>
-            <div className="outer">
                 <Navbar/>
                 {
-                    !protect || session.currentSession?.user ? <Outlet/> :
+                    !protect || session.currentSession?.user ? <main className="main-body"><Outlet/></main> :
                         <h1 className="request">Please sign in! 😄</h1>
                 }
-            </div>
         </UserContext.Provider>
+    </div>
     </>
 }
