@@ -5,6 +5,7 @@ import {Answer, SupaResponse} from "../../lib/Types";
 import {supaClient} from "../../lib/supa-client";
 import { useNavigate } from "react-router-dom";
 import {UserContext} from "../main";
+import "./PollResultPage.css";
 
 export default function PollEditorPage() {
     const [answers, setAnswers] = useState<Array<string>>([])

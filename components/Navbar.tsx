@@ -1,10 +1,10 @@
 import {useNavigate} from "react-router-dom";
 import {UserContext} from "../src/main";
-import React from "react";
-
+import "./Navbar.css";
+import {useContext} from "react";
 export const Navbar = () => {
     const navigate = useNavigate()
-    const session = React.useContext(UserContext)
+    const session = useContext(UserContext)
 
     const navigateToLogin = (mode: "sign_in" | "sign_up") => {
         navigate("/auth", {state: {mode: mode}})
