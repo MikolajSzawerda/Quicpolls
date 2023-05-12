@@ -5,7 +5,7 @@
 - [x] after sign up, confirmation link moves to localhost
 - [x] user can create account with existing email in db
 - [x] on different screens main panel has scroll
-- [ ] poll result looks bad on mobile
+- [x] poll result looks bad on mobile
 
 ## General
 

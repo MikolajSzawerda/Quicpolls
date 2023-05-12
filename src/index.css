@@ -190,7 +190,6 @@ body {
   align-items: center;
   margin: 2rem;
   gap: 0.5rem;
-  height: 100%;
 }
 
 .poll-result-heading {
@@ -217,7 +216,6 @@ body {
 .answer-adder-input {
   border: none;
   width: 100%;
-  height: 100%;
   font-size: 1rem;
   border-top: white 4px solid;
   border-bottom: white 2px solid;
@@ -448,4 +446,30 @@ body {
 
 .request {
   text-align: center;
+}
+
+@media (max-width: 768px){
+  .poll-info {
+    flex-direction: column;
+  }
+
+  .poll-join-panel{
+    order: 2;
+  }
+
+  .nav-bar{
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-header{
+
+  }
+
 }
