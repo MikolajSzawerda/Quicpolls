@@ -1,4 +1,5 @@
 import {Answer} from "../lib/Types";
+import "./RateBar.css";
 
 export const RateBar = ({text, count}: Answer) => {
     return <div className="rate-bar">
