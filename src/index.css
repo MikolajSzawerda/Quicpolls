@@ -349,3 +349,7 @@ body {
   text-align: center;
 }
 
+.poll-answers-warning {
+  font-weight: bold;
+  color: #e84733;
+}
